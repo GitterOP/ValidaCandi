@@ -1,0 +1,24 @@
+# Audio derivado (se regenera desde el manifest; contenido con derechos de autor)
+*.wav
+*.mp3
+*.ogg
+*.opus
+*.flac
+**/clips/
+*.zip
+
+# Configuración local con rutas y secretos
+config.local.yaml
+.env
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
