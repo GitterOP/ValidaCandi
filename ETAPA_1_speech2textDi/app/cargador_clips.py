@@ -14,21 +14,77 @@ _ETAPA_DIR = Path(__file__).resolve().parents[1]
 if str(_ETAPA_DIR) not in sys.path:
     sys.path.insert(0, str(_ETAPA_DIR))
 
-from core.hashes import sha256_archivo
+from core.hashes import sha256_archivo, sha256_bytes
 from core.validacion_esquemas import validar_manifest
 
 RUTA_MANIFEST_DEFAULT = _ETAPA_DIR / "muestreo" / "manifest_piloto.json"
+DIR_MUESTREO_DEFAULT = _ETAPA_DIR / "muestreo"
 DIR_CLIPS_LOCAL_DEFAULT = _ETAPA_DIR / "muestreo" / "clips"
+
+_ORDEN_FASES = {
+    "ampliacion_medio": 0,
+    "ampliacion_seguro": 1,
+    "piloto": 2,
+}
 
 
 def cargar_manifest_piloto(ruta_manifest: Path = RUTA_MANIFEST_DEFAULT) -> dict[str, Any]:
-    """Carga y valida ``manifest_piloto.json`` desde el repositorio."""
+    """Carga y valida un archivo de manifest desde el repositorio."""
     if not ruta_manifest.is_file():
-        raise FileNotFoundError(f"No se encontro el manifest del piloto: {ruta_manifest}")
+        raise FileNotFoundError(f"No se encontro el manifest: {ruta_manifest}")
     with ruta_manifest.open("r", encoding="utf-8") as fh:
         manifest = json.load(fh)
     validar_manifest(manifest, verificar_hash=True)
     return manifest
+
+
+def descubrir_manifests_disponibles(
+    dir_muestreo: Path = DIR_MUESTREO_DEFAULT,
+) -> list[dict[str, Any]]:
+    """Descubre todos los manifests validos en ``muestreo/`` priorizando el lote activo."""
+    if not dir_muestreo.is_dir():
+        return []
+    encontrados: list[dict[str, Any]] = []
+    for ruta in sorted(dir_muestreo.glob("manifest_*.json")):
+        try:
+            m = cargar_manifest_piloto(ruta)
+            encontrados.append(m)
+        except Exception:
+            continue
+    encontrados.sort(key=lambda m: (_ORDEN_FASES.get(str(m.get("fase", "")), 99), str(m.get("fase", ""))))
+    return encontrados
+
+
+def autodetectar_manifest_desde_zip(
+    zip_bytes: bytes,
+    manifests: list[dict[str, Any]],
+) -> dict[str, Any] | None:
+    """Identifica que manifest coincide con los MP3 contenidos en un ZIP."""
+    try:
+        with zipfile.ZipFile(io.BytesIO(zip_bytes), "r") as zf:
+            nombres_zip = {
+                Path(info.filename).name
+                for info in zf.infolist()
+                if not info.is_dir() and info.filename.lower().endswith(".mp3")
+            }
+            if not nombres_zip:
+                return None
+            # Intentar match exacto por conjunto de archivos y validar al menos 1 hash
+            for m in manifests:
+                esperados = {c["archivo_clip"] for c in m["clips"]}
+                if esperados.issubset(nombres_zip):
+                    primer_clip = m["clips"][0]
+                    if primer_clip.get("sha256_clip"):
+                        for info in zf.infolist():
+                            if Path(info.filename).name == primer_clip["archivo_clip"]:
+                                with zf.open(info, "r") as fh:
+                                    if sha256_bytes(fh.read()) == primer_clip["sha256_clip"]:
+                                        return m
+                    else:
+                        return m
+    except zipfile.BadZipFile:
+        return None
+    return None
 
 
 def verificar_directorio_clips(
@@ -89,7 +145,6 @@ def descargar_clips_desde_url(
     dir_destino: Path,
 ) -> tuple[bool, list[str]]:
     """Descarga un paquete ZIP de clips desde una URL privada y lo verifica."""
-    # Si ya esta en cache efimera y es valido, reutilizarlo
     ok_previo, _ = verificar_directorio_clips(manifest, dir_destino)
     if ok_previo:
         return True, []
@@ -106,4 +161,3 @@ def descargar_clips_desde_url(
         return False, [f"Error descargando clips desde URL configurada: {exc}"]
 
     return extraer_zip_y_verificar(zip_bytes, manifest, dir_destino)
-

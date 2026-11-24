@@ -7,7 +7,7 @@ from typing import Any
 
 from core.hashes import sha256_manifest_canonico
 
-PATRON_CLIP_ID = re.compile(r"^P\d{3}$")
+PATRON_CLIP_ID = re.compile(r"^[PMS]\d{3}$")
 PATRON_HABLANTE = re.compile(r"^H[1-9]\d*$")
 PATRON_HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
@@ -89,6 +89,41 @@ def validar_manifest(manifest: dict[str, Any], verificar_hash: bool = True) -> N
                 f"sha256_manifest inconsistente: archivo={manifest['sha256_manifest']}, "
                 f"calculado={esperado}"
             )
+
+    linaje = manifest.get("linaje_muestreo")
+    if linaje is not None:
+        if not isinstance(linaje, dict) or not isinstance(linaje.get("manifests_previos"), list):
+            raise EsquemaInvalidoError("El campo 'linaje_muestreo' debe incluir lista 'manifests_previos'.")
+        for prev in linaje["manifests_previos"]:
+            if not isinstance(prev, dict) or not PATRON_HEX64.match(str(prev.get("sha256_manifest", ""))):
+                raise EsquemaInvalidoError("Entrada invalida en 'linaje_muestreo.manifests_previos'.")
+
+
+def verificar_sin_solapamiento_manifests(
+    manifests: list[dict[str, Any]],
+    colchon_s: float = 0.0,
+) -> None:
+    """Verifica que no existan clip_id repetidos ni intervalos solapados entre manifests."""
+    ids_globales: set[str] = set()
+    por_entrevista: dict[str, list[tuple[str, float, float]]] = {}
+
+    for m in manifests:
+        for clip in m.get("clips", []):
+            cid = clip["clip_id"]
+            if cid in ids_globales:
+                raise EsquemaInvalidoError(f"clip_id duplicado al consolidar manifests: {cid}")
+            ids_globales.add(cid)
+
+            ent = clip["entrevista"]
+            ini = float(clip["inicio_s"])
+            fin = float(clip["fin_s"])
+            for prev_cid, p_ini, p_fin in por_entrevista.get(ent, []):
+                if ini < (p_fin + colchon_s) and fin > (p_ini - colchon_s):
+                    raise EsquemaInvalidoError(
+                        f"Solapamiento detectado en '{ent}': {prev_cid} [{p_ini}, {p_fin}] "
+                        f"y {cid} [{ini}, {fin}] (colchon={colchon_s} s)."
+                    )
+            por_entrevista.setdefault(ent, []).append((cid, ini, fin))
 
 
 def validar_turno(

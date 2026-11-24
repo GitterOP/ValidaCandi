@@ -1,0 +1,306 @@
+{
+  "version_esquema": "1.0",
+  "fecha_calculo": "2026-11-24T12:16:56-05:00",
+  "parcial": false,
+  "trazabilidad": {
+    "sha256_manifest": "dadc91a0a8dc7da0cb36db43f36f7fe4f1add25849f9a87559c16cad2bd298c5",
+    "archivo_anotacion": "/home/jd/Escritorio/ValidaCandi/ETAPA_1_speech2textDi/gold/pilot/anot_jd_2026-11-21_n024.json",
+    "sha256_anotacion": "b8e7a871f3787b906e92592a36e77643fd30710ec4d2edb9363e5b75eb61e913",
+    "version_guia": "1.0",
+    "fuentes_validadas_ok": true,
+    "semilla_bootstrap": 20261119,
+    "n_bootstrap": 10000
+  },
+  "cobertura": {
+    "n_total_manifest": 24,
+    "n_completos": 24,
+    "n_no_anotables": 0,
+    "n_evaluables": 24,
+    "n_estrato_b_eval": 16,
+    "n_estrato_a_eval": 8,
+    "tiempo_medio_clip_s": 130.13,
+    "tiempo_total_h": 0.868
+  },
+  "metricas_globales": {
+    "WER": {
+      "puntual": 0.007694,
+      "ic95": [
+        0.004623,
+        0.010934
+      ]
+    },
+    "CER": {
+      "puntual": 0.004602,
+      "ic95": [
+        0.002187,
+        0.007384
+      ]
+    },
+    "tasa_err_entidades": {
+      "puntual": 0.028409,
+      "ic95": [
+        0.006535,
+        0.0625
+      ]
+    },
+    "WDER_seg": {
+      "puntual": 0.027273,
+      "ic95": [
+        0.012305,
+        0.043575
+      ]
+    },
+    "cpWER_seg": {
+      "puntual": 0.060181,
+      "ic95": [
+        0.03131,
+        0.091874
+      ]
+    },
+    "delta_diar_seg": {
+      "puntual": 0.052487,
+      "ic95": [
+        0.024017,
+        0.083311
+      ]
+    },
+    "WDER_word": {
+      "puntual": 0.041047,
+      "ic95": [
+        0.022918,
+        0.059317
+      ]
+    },
+    "cpWER_word": {
+      "puntual": 0.084639,
+      "ic95": [
+        0.049476,
+        0.120403
+      ]
+    },
+    "tasa_frag_lt10": {
+      "puntual": 0.017322,
+      "ic95": [
+        0.002518,
+        0.041455
+      ]
+    }
+  },
+  "hablantes_seg": {
+    "delta_medio": -0.0417,
+    "delta_mediana": 0.0,
+    "pct_exacto": 0.9583,
+    "pct_sobresegmentado": 0.0,
+    "pct_subsegmentado": 0.0417
+  },
+  "por_estrato": {
+    "B": {
+      "WER": {
+        "puntual": 0.005537,
+        "ic95": [
+          0.002461,
+          0.009295
+        ]
+      },
+      "CER": {
+        "puntual": 0.002039,
+        "ic95": [
+          0.000639,
+          0.003947
+        ]
+      },
+      "tasa_err_entidades": {
+        "puntual": 0.030534,
+        "ic95": [
+          0.00641,
+          0.073171
+        ]
+      },
+      "WDER_seg": {
+        "puntual": 0.017903,
+        "ic95": [
+          0.004327,
+          0.034357
+        ]
+      },
+      "cpWER_seg": {
+        "puntual": 0.041312,
+        "ic95": [
+          0.014809,
+          0.074077
+        ]
+      },
+      "delta_diar_seg": {
+        "puntual": 0.035775,
+        "ic95": [
+          0.008647,
+          0.068608
+        ]
+      },
+      "WDER_word": {
+        "puntual": 0.028559,
+        "ic95": [
+          0.010719,
+          0.048301
+        ]
+      },
+      "cpWER_word": {
+        "puntual": 0.060477,
+        "ic95": [
+          0.026239,
+          0.098183
+        ]
+      },
+      "tasa_frag_lt10": {
+        "puntual": 0.005534,
+        "ic95": [
+          0.0,
+          0.013453
+        ]
+      },
+      "s_WER_clip": 0.00836
+    },
+    "A": {
+      "WER": {
+        "puntual": 0.011619,
+        "ic95": [
+          0.006034,
+          0.016417
+        ]
+      },
+      "CER": {
+        "puntual": 0.009264,
+        "ic95": [
+          0.004032,
+          0.014123
+        ]
+      },
+      "tasa_err_entidades": {
+        "puntual": 0.022222,
+        "ic95": [
+          0.0,
+          0.097561
+        ]
+      },
+      "WDER_seg": {
+        "puntual": 0.044393,
+        "ic95": [
+          0.013793,
+          0.077476
+        ]
+      },
+      "cpWER_seg": {
+        "puntual": 0.0945,
+        "ic95": [
+          0.034774,
+          0.156056
+        ]
+      },
+      "delta_diar_seg": {
+        "puntual": 0.082881,
+        "ic95": [
+          0.026208,
+          0.143194
+        ]
+      },
+      "WDER_word": {
+        "puntual": 0.063863,
+        "ic95": [
+          0.029342,
+          0.094408
+        ]
+      },
+      "cpWER_word": {
+        "puntual": 0.128582,
+        "ic95": [
+          0.059749,
+          0.189718
+        ]
+      },
+      "tasa_frag_lt10": {
+        "puntual": 0.03882,
+        "ic95": [
+          0.002375,
+          0.099456
+        ]
+      },
+      "s_WER_clip": 0.008066
+    }
+  },
+  "por_candidato_exploratorio": {
+    "1_keiko": {
+      "n_eval": 3,
+      "WER": 0.004695,
+      "WDER_seg": 0.002347,
+      "cpWER_seg": 0.00939,
+      "delta_hablantes_medio": -0.333
+    },
+    "2_rla": {
+      "n_eval": 3,
+      "WER": 0.009153,
+      "WDER_seg": 0.061785,
+      "cpWER_seg": 0.130435,
+      "delta_hablantes_medio": 0.0
+    },
+    "3_carlosal": {
+      "n_eval": 3,
+      "WER": 0.008547,
+      "WDER_seg": 0.041026,
+      "cpWER_seg": 0.090598,
+      "delta_hablantes_medio": 0.0
+    },
+    "4_chau": {
+      "n_eval": 3,
+      "WER": 0.005391,
+      "WDER_seg": 0.01626,
+      "cpWER_seg": 0.037736,
+      "delta_hablantes_medio": 0.0
+    },
+    "5_jorgeni": {
+      "n_eval": 3,
+      "WER": 0.010309,
+      "WDER_seg": 0.012474,
+      "cpWER_seg": 0.035052,
+      "delta_hablantes_medio": 0.0
+    },
+    "6_robertosa": {
+      "n_eval": 3,
+      "WER": 0.001992,
+      "WDER_seg": 0.0,
+      "cpWER_seg": 0.001992,
+      "delta_hablantes_medio": 0.0
+    },
+    "7_cesara": {
+      "n_eval": 3,
+      "WER": 0.017812,
+      "WDER_seg": 0.040921,
+      "cpWER_seg": 0.099237,
+      "delta_hablantes_medio": 0.0
+    },
+    "8_cerron": {
+      "n_eval": 3,
+      "WER": 0.004545,
+      "WDER_seg": 0.04328,
+      "cpWER_seg": 0.077273,
+      "delta_hablantes_medio": 0.0
+    }
+  },
+  "correlacion_confianza": {
+    "spearman_score_vs_WER": {
+      "rho": -0.4937,
+      "p_value": 0.014217
+    },
+    "spearman_logprob_vs_WER": {
+      "rho": -0.5835,
+      "p_value": 0.002762
+    }
+  },
+  "dimensionamiento_muestra_final": {
+    "margen_objetivo_E": 0.03,
+    "n_B_piloto": 16,
+    "s_B_WER_clip": 0.00836,
+    "s_UCL_80": 0.010085,
+    "n_B_recomendado": 1,
+    "horas_anotacion_estimadas_adicionales": 0.0
+  }
+}

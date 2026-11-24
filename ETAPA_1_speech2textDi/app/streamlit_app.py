@@ -22,8 +22,9 @@ if str(_ETAPA_DIR) not in sys.path:
 
 from app.cargador_clips import (
     DIR_CLIPS_LOCAL_DEFAULT,
-    cargar_manifest_piloto,
+    autodetectar_manifest_desde_zip,
     descargar_clips_desde_url,
+    descubrir_manifests_disponibles,
     extraer_zip_y_verificar,
     verificar_directorio_clips,
 )
@@ -57,13 +58,14 @@ MOTIVOS_ETIQUETAS = {
 
 
 @st.cache_resource
-def _obtener_manifest_cached() -> dict[str, Any]:
-    return cargar_manifest_piloto()
+def _obtener_manifests_cached() -> list[dict[str, Any]]:
+    return descubrir_manifests_disponibles()
 
 
 @st.cache_resource
 def _descargar_clips_desde_secrets(url: str, token: str, sha_manifest: str) -> tuple[str | None, list[str]]:
-    manifest = _obtener_manifest_cached()
+    manifests = _obtener_manifests_cached()
+    manifest = next((m for m in manifests if m["sha256_manifest"] == sha_manifest), manifests[0])
     dir_cache = Path(tempfile.gettempdir()) / "validacandi_clips" / sha_manifest[:16]
     ok, errores = descargar_clips_desde_url(url, token or None, manifest, dir_cache)
     return (str(dir_cache) if ok else None), errores
@@ -213,22 +215,53 @@ def _render_guia_anotacion() -> None:
         )
 
 
-def _resolver_directorio_clips(manifest: dict[str, Any]) -> Path | None:
-    """Resuelve los MP3 desde local, st.secrets o subida manual de ZIP."""
+def _resolver_directorio_clips(
+    manifest: dict[str, Any],
+    manifests_todos: list[dict[str, Any]],
+) -> tuple[Path | None, dict[str, Any]]:
+    """Resuelve los MP3 desde ZIP subido (con autodeteccion), local o st.secrets."""
+    archivo_zip = st.sidebar.file_uploader(
+        "Cargar paquete ZIP de clips",
+        type=["zip"],
+        key="uploader_clips_zip",
+        help="Al subir un ZIP, la app detecta automaticamente el lote correspondiente y verifica los SHA-256.",
+    )
+    if archivo_zip is not None:
+        zip_bytes = archivo_zip.getvalue()
+        zip_sha = str(hash(zip_bytes))
+        if st.session_state.get("ultimo_zip_procesado") != zip_sha:
+            detectado = autodetectar_manifest_desde_zip(zip_bytes, manifests_todos)
+            manifest_objetivo = detectado if detectado is not None else manifest
+            dir_tmp = (
+                Path(tempfile.gettempdir())
+                / "validacandi_clips"
+                / manifest_objetivo["sha256_manifest"][:16]
+            )
+            ok_zip, errores_zip = extraer_zip_y_verificar(zip_bytes, manifest_objetivo, dir_tmp)
+            if ok_zip:
+                st.session_state["ultimo_zip_procesado"] = zip_sha
+                st.session_state["manifest_sha_activo"] = manifest_objetivo["sha256_manifest"]
+                st.session_state["dir_clips_activo"] = str(dir_tmp)
+                st.sidebar.success(
+                    f"Lote '{manifest_objetivo['fase']}': {len(manifest_objetivo['clips'])} clips verificados."
+                )
+                return dir_tmp, manifest_objetivo
+            st.sidebar.error("El ZIP no coincide con ningun manifest:\n" + "\n".join(errores_zip[:6]))
+
     dir_actual = st.session_state.get("dir_clips_activo")
     if dir_actual:
         ok, _ = verificar_directorio_clips(manifest, Path(dir_actual))
         if ok:
-            return Path(dir_actual)
+            return Path(dir_actual), manifest
 
-    # 1. Entorno local (si existe muestreo/clips validado)
+    # Entorno local (si existe muestreo/clips validado para este lote)
     if DIR_CLIPS_LOCAL_DEFAULT.is_dir():
         ok_local, _ = verificar_directorio_clips(manifest, DIR_CLIPS_LOCAL_DEFAULT)
         if ok_local:
             st.session_state["dir_clips_activo"] = str(DIR_CLIPS_LOCAL_DEFAULT)
-            return DIR_CLIPS_LOCAL_DEFAULT
+            return DIR_CLIPS_LOCAL_DEFAULT, manifest
 
-    # 2. Configuracion via st.secrets en Streamlit Community Cloud
+    # Configuracion via st.secrets en Streamlit Community Cloud
     url_secret = ""
     token_secret = ""
     try:
@@ -243,26 +276,10 @@ def _resolver_directorio_clips(manifest: dict[str, Any]) -> Path | None:
         )
         if dir_str:
             st.session_state["dir_clips_activo"] = dir_str
-            return Path(dir_str)
+            return Path(dir_str), manifest
         st.sidebar.error("Error cargando clips desde st.secrets:\n" + "\n".join(errores[:5]))
 
-    # 3. Subida manual de clips_piloto.zip
-    st.sidebar.subheader("Cargar audio del piloto")
-    archivo_zip = st.sidebar.file_uploader(
-        "Sube clips_piloto.zip (~12 MB)",
-        type=["zip"],
-        help="Los audios no se guardan en Git; se verifican por SHA-256 en sesion.",
-    )
-    if archivo_zip is not None:
-        dir_tmp = Path(tempfile.gettempdir()) / "validacandi_clips" / manifest["sha256_manifest"][:16]
-        ok_zip, errores_zip = extraer_zip_y_verificar(archivo_zip.getvalue(), manifest, dir_tmp)
-        if ok_zip:
-            st.session_state["dir_clips_activo"] = str(dir_tmp)
-            st.sidebar.success("24 clips verificados por SHA-256.")
-            return dir_tmp
-        st.sidebar.error("El ZIP no coincide con el manifest:\n" + "\n".join(errores_zip[:6]))
-
-    return None
+    return None, manifest
 
 
 @st.fragment
@@ -608,34 +625,59 @@ def _render_editor_tarjetas(
 
 def main() -> None:
     st.set_page_config(
-        page_title="ValidaCandi - Etapa 1 (Piloto)",
+        page_title="ValidaCandi - Etapa 1",
         layout="wide",
     )
 
     try:
-        manifest = _obtener_manifest_cached()
+        manifests = _obtener_manifests_cached()
     except Exception as exc:
-        st.error(f"No se pudo cargar manifest_piloto.json: {exc}")
+        st.error(f"No se pudieron cargar los manifests: {exc}")
         st.stop()
 
+    if not manifests:
+        st.error("No se encontro ningun manifest valido en ETAPA_1_speech2textDi/muestreo/.")
+        st.stop()
+
+    st.sidebar.title("ValidaCandi | Etapa 1")
+    st.session_state["anotador"] = st.sidebar.text_input(
+        "Anotador", value=st.session_state.get("anotador", "jd")
+    )
+
+    sha_sel = st.session_state.get("manifest_sha_activo", manifests[0]["sha256_manifest"])
+    shas_disp = [m["sha256_manifest"] for m in manifests]
+    idx_m_actual = shas_disp.index(sha_sel) if sha_sel in shas_disp else 0
+    if len(manifests) > 1:
+        etiquetas_fase = {
+            "piloto": "Piloto",
+            "ampliacion_medio": "Ampliacion Medio",
+            "ampliacion_seguro": "Ampliacion Seguro",
+        }
+        idx_m_sel = st.sidebar.selectbox(
+            "Lote de muestreo",
+            options=list(range(len(manifests))),
+            index=idx_m_actual,
+            format_func=lambda k: (
+                f"{etiquetas_fase.get(manifests[k]['fase'], manifests[k]['fase'])} "
+                f"({len(manifests[k]['clips'])} clips)"
+            ),
+        )
+        manifest = manifests[idx_m_sel]
+        st.session_state["manifest_sha_activo"] = manifest["sha256_manifest"]
+    else:
+        manifest = manifests[0]
+
+    dir_clips, manifest = _resolver_directorio_clips(manifest, manifests)
     _iniciar_session_state(manifest)
     clips_lista = clips_ordenados_para_ui(manifest)
     clips_estado = st.session_state["clips_estado"]
-
-    # Sidebar: anotador, carga de clips, progreso y exportar/importar
-    st.sidebar.title("ValidaCandi | Etapa 1")
-    st.session_state["anotador"] = st.sidebar.text_input(
-        "Anotador", value=st.session_state["anotador"]
-    )
-
-    dir_clips = _resolver_directorio_clips(manifest)
 
     n_total = len(clips_lista)
     n_term = sum(
         1 for c in clips_lista if clips_estado[c["clip_id"]]["estado"] in {"completo", "no_anotable"}
     )
     st.sidebar.markdown("---")
-    st.sidebar.metric("Progreso del piloto", f"{n_term} / {n_total}")
+    st.sidebar.metric(f"Progreso ({manifest['fase']})", f"{n_term} / {n_total}")
     st.sidebar.progress(n_term / n_total if n_total else 0.0)
 
     if st.session_state.get("completados_desde_export", 0) >= 3:
@@ -701,7 +743,7 @@ def main() -> None:
         _cambiar_clip(seleccion_idx, clips_lista[clip_idx_actual]["clip_id"])
         st.rerun()
 
-    with st.sidebar.expander("Estado de los 24 clips", expanded=False):
+    with st.sidebar.expander(f"Estado de los {n_total} clips", expanded=False):
         resumen_clips = "\n".join(
             f"- **{idx + 1:02d}. {c['clip_id']}**: `{etiquetas_estado.get(clips_estado[c['clip_id']]['estado'], '')}`"
             for idx, c in enumerate(clips_lista)
@@ -710,8 +752,8 @@ def main() -> None:
 
     if dir_clips is None:
         st.info(
-            "Para comenzar a anotar, sube el archivo `clips_piloto.zip` en la barra lateral "
-            "(o configura `CLIPS_ZIP_URL` en `st.secrets`)."
+            "Para comenzar a anotar, sube el archivo ZIP correspondiente en la barra lateral "
+            "(por ejemplo `clips_ampliacion_medio.zip` o `clips_piloto.zip`)."
         )
         _render_guia_anotacion()
         st.stop()

@@ -29,6 +29,7 @@ from core.validacion_esquemas import (
     fusionar_turnos_consecutivos,
     validar_anotacion,
     validar_manifest,
+    verificar_sin_solapamiento_manifests,
 )
 from metricas.calculo_asr import calcular_metricas_asr_clip
 from metricas.calculo_diarizacion import calcular_metricas_diarizacion_clip
@@ -132,8 +133,8 @@ def _fila_vacia(clip: dict[str, Any], estado: str, motivo: str | None, tiempo_s:
 
 
 def ejecutar_evaluacion(
-    ruta_manifest: Path,
-    ruta_anotacion: Path,
+    ruta_manifest: Path | list[Path],
+    ruta_anotacion: Path | list[Path],
     repo_fuente: Path | None = None,
     semilla_bootstrap: int = 20261119,
     n_bootstrap: int = 10000,
@@ -141,19 +142,33 @@ def ejecutar_evaluacion(
     permitir_incompleto: bool = False,
     permitir_obsoletos: bool = False,
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
-    """Ejecuta validacion de trazabilidad y calcula tabla CSV y resumen JSON."""
-    with ruta_manifest.open("r", encoding="utf-8") as fh:
-        manifest = json.load(fh)
-    validar_manifest(manifest, verificar_hash=True)
+    """Ejecuta validacion de trazabilidad (1 o varios lotes) y calcula CSV y JSON."""
+    rutas_m = [ruta_manifest] if isinstance(ruta_manifest, Path) else list(ruta_manifest)
+    rutas_a = [ruta_anotacion] if isinstance(ruta_anotacion, Path) else list(ruta_anotacion)
+    if not rutas_m or len(rutas_m) != len(rutas_a):
+        raise ValueError("Debe proporcionar la misma cantidad de archivos --manifest y --anotacion.")
 
-    with ruta_anotacion.open("r", encoding="utf-8") as fh:
-        anotacion = json.load(fh)
-    incompletos = validar_anotacion(
-        anotacion, manifest, exigir_todos_terminados=not permitir_incompleto
-    )
+    manifests: list[dict[str, Any]] = []
+    anotaciones: list[dict[str, Any]] = []
+    incompletos_totales: list[str] = []
 
-    fuente_path = repo_fuente if repo_fuente is not None else Path(manifest["fuente"]["repo_path"])
-    errores_fuentes = _verificar_fuentes(manifest, fuente_path)
+    for r_m, r_a in zip(rutas_m, rutas_a):
+        with r_m.open("r", encoding="utf-8") as fh:
+            m = json.load(fh)
+        validar_manifest(m, verificar_hash=True)
+        with r_a.open("r", encoding="utf-8") as fh:
+            a = json.load(fh)
+        inc = validar_anotacion(a, m, exigir_todos_terminados=not permitir_incompleto)
+        manifests.append(m)
+        anotaciones.append(a)
+        incompletos_totales.extend(inc)
+
+    verificar_sin_solapamiento_manifests(manifests, colchon_s=0.0)
+
+    fuente_path = repo_fuente if repo_fuente is not None else Path(manifests[0]["fuente"]["repo_path"])
+    errores_fuentes: list[str] = []
+    for m in manifests:
+        errores_fuentes.extend(_verificar_fuentes(m, fuente_path))
     if errores_fuentes and not permitir_obsoletos:
         raise ValueError(
             "Insumos obsoletos o faltantes en CodeCursos: " + "; ".join(errores_fuentes[:5])
@@ -161,9 +176,14 @@ def ejecutar_evaluacion(
 
     cache_diario: dict[str, dict[str, Any]] = {}
     filas: list[dict[str, Any]] = []
-    dir_diario = fuente_path / manifest["fuente"]["dir_diario"]
+    dir_diario = fuente_path / manifests[0]["fuente"]["dir_diario"]
 
-    for clip in sorted(manifest["clips"], key=lambda c: c["clip_id"]):
+    pares_clips = [
+        (clip, anot)
+        for m, anot in zip(manifests, anotaciones)
+        for clip in m["clips"]
+    ]
+    for clip, anotacion in sorted(pares_clips, key=lambda item: item[0]["clip_id"]):
         cid = clip["clip_id"]
         entry = anotacion["clips"].get(cid, {"estado": "pendiente", "turnos": [], "tiempo_anotacion_s": 0.0})
         estado = entry.get("estado", "pendiente")
@@ -253,12 +273,20 @@ def ejecutar_evaluacion(
     resumen = {
         "version_esquema": "1.0",
         "fecha_calculo": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
-        "parcial": bool(incompletos),
+        "parcial": bool(incompletos_totales),
         "trazabilidad": {
-            "sha256_manifest": manifest["sha256_manifest"],
-            "archivo_anotacion": str(ruta_anotacion),
-            "sha256_anotacion": sha256_archivo(ruta_anotacion),
-            "version_guia": anotacion.get("version_guia", ""),
+            "sha256_manifest": manifests[0]["sha256_manifest"] if len(manifests) == 1 else "consolidado",
+            "manifests": [
+                {"archivo": str(rm), "fase": m["fase"], "sha256_manifest": m["sha256_manifest"], "n_clips": len(m["clips"])}
+                for rm, m in zip(rutas_m, manifests)
+            ],
+            "archivo_anotacion": str(rutas_a[0]) if len(rutas_a) == 1 else ", ".join(str(ra) for ra in rutas_a),
+            "archivos_anotacion": [
+                {"archivo": str(ra), "sha256_anotacion": sha256_archivo(ra)}
+                for ra in rutas_a
+            ],
+            "sha256_anotacion": sha256_archivo(rutas_a[0]) if len(rutas_a) == 1 else "consolidado",
+            "version_guia": anotaciones[0].get("version_guia", ""),
             "fuentes_validadas_ok": len(errores_fuentes) == 0,
             "semilla_bootstrap": semilla_bootstrap,
             "n_bootstrap": n_bootstrap,
@@ -293,8 +321,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Calcula metricas ASR, diarizacion textual e IC bootstrap del piloto."
     )
-    parser.add_argument("--manifest", type=Path, required=True, help="Ruta a manifest_piloto.json.")
-    parser.add_argument("--anotacion", type=Path, required=True, help="Ruta a gold/anot_*.json.")
+    parser.add_argument("--manifest", type=Path, nargs="+", required=True, help="Ruta(s) a manifest_*.json.")
+    parser.add_argument("--anotacion", type=Path, nargs="+", required=True, help="Ruta(s) a gold/**/anot_*.json.")
     parser.add_argument("--repo-fuente", type=Path, default=None, help="Override ruta a CodeCursos.")
     parser.add_argument(
         "--salida-csv",
@@ -319,8 +347,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
 
-    if not args.manifest.is_file() or not args.anotacion.is_file():
-        print("ERROR: No existe el manifest o el archivo de anotacion indicado.")
+    if len(args.manifest) != len(args.anotacion):
+        print("ERROR: --manifest y --anotacion deben tener el mismo numero de archivos.")
+        return 1
+    if any(not p.is_file() for p in args.manifest) or any(not p.is_file() for p in args.anotacion):
+        print("ERROR: Alguno de los archivos manifest o anotacion indicados no existe.")
         return 1
 
     try:

@@ -1,0 +1,1125 @@
+{
+  "version_esquema": "1.0",
+  "etapa": "ETAPA_1_speech2textDi",
+  "fase": "ampliacion_medio",
+  "semilla": 20261124,
+  "fecha_generacion": "2026-11-24T12:37:17-05:00",
+  "fuente": {
+    "repo_path": "/home/jd/Escritorio/CodeCursos",
+    "dir_diario": "Resultados/Diario",
+    "dir_audios": "Resultados/Audios",
+    "n_entrevistas_marco": 80
+  },
+  "parametros": {
+    "duracion_clip_s": 60.0,
+    "ajuste_borde_max_s": 2.0,
+    "offset_estrato_a_s": [
+      15.0,
+      45.0
+    ],
+    "clips_por_candidato_estrato_b": 2,
+    "clips_por_candidato_estrato_a": 2,
+    "formato_clip": {
+      "codec": "mp3",
+      "canales": 1,
+      "frecuencia_hz": 16000,
+      "bitrate_kbps": 64
+    }
+  },
+  "linaje_muestreo": {
+    "semilla_ampliacion": 20261124,
+    "colchon_exclusion_s": 30.0,
+    "manifests_previos": [
+      {
+        "archivo": "manifest_piloto.json",
+        "fase": "piloto",
+        "sha256_manifest": "dadc91a0a8dc7da0cb36db43f36f7fe4f1add25849f9a87559c16cad2bd298c5",
+        "n_clips": 24
+      }
+    ]
+  },
+  "clips": [
+    {
+      "clip_id": "M001",
+      "orden_anotacion": 1,
+      "entrevista": "7_1_keiko",
+      "candidato_cid": 1,
+      "candidato_slug": "1_keiko",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 855.966,
+      "fin_s": 916.342,
+      "duracion_s": 60.376,
+      "sha256_wav": "248e999d03a8778f0e7221f5dbca844ad973061b4e28f75bf18a2a9fc01edf2f",
+      "sha256_json": "a4ef173b0ea7ed3bbbf964a1a3db230afb130bbc817ac5e906cfcd3c117b7f27",
+      "archivo_clip": "M001.mp3",
+      "sha256_clip": "11b8db0ec94caba65dfd7f670b6b8c89bf7c0fd1619ae749a6eabff962e12901",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "quiera, pero lo que sí es importante es garantizarle a la gente que no se van a cometer los mismos errores. ¿En qué sentido? Y ya me refiero a Keiko Fujimori, ¿no? Por ejemplo... El tema cuando tuvo la inmensa mayoría dentro del Congreso fue una mayoría avasalladora que terminó con la renuncia de un Pedro Pablo Kuczynski. Más allá de lo que él tiene que responderle a la justicia o lo que fuere. Pero no se arrepiente de eso porque usted fue una aplanadora."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Eso tampoco es así, Mónica. Nosotros lo que hicimos fue enviar emisarios. Fue Cecilia Chacón y el exsecretario general José Klimper a conversar con Fernando Zavala, quien era el primer ministro. Y lo que se le dijo es, más allá del debate que va a haber, los votos en las leyes más importantes y constan los votos de fuerza popular en el voto de confianza, ¿No reconoce que hubo ahí una especie de sed de venganza por haber sido derrotada?"
+        }
+      ]
+    },
+    {
+      "clip_id": "M002",
+      "orden_anotacion": 2,
+      "entrevista": "15_2_rla",
+      "candidato_cid": 2,
+      "candidato_slug": "2_rla",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 1486.115,
+      "inicio_s": 1460.01,
+      "fin_s": 1520.218,
+      "duracion_s": 60.208,
+      "sha256_wav": "e59edf9ef6c3b76085c2d41b11572372106d0c2e9c93d3c09b2e8e2bff056664",
+      "sha256_json": "d496a676f89bcb00f591ae2fdaea4c028707dce6852a241eacef4528aa2d7468",
+      "archivo_clip": "M002.mp3",
+      "sha256_clip": "5f07b3d2e691fb8b76ae00c7edd2a30919a22c94bdf42e662653e5a7f233d3ba",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "margina, y peor una señora como la que hemos largado, te puedo decir. Es la misma Norma Yarro que tú comentas, es la misma señora que se paró y dijo hasta acá no más."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Y que seis veces antes había votado en contra de la vacancia."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Es que no había los votos, pero en el momento en el cual, Hemos salido a hablar claramente. Esta señora no invierte un mango en seguridad ciudadana."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "No, era un impresentable, nunca tuvo que haber asumido."
+        },
+        {
+          "turno_id": 5,
+          "hablante": "H1",
+          "texto": "No, por eso, pero habiéndole dicho... hasta con música, ¿no? Señora, invierta en inteligencia, invierta en chuponeo de líneas, invierta en tener estas centrales para evaluar la balística, ¿no? Lo que es los laboratorios de criminalística. Invierta en penales, invierta... No, era un ida y vuelta, un paseo, por ser elegante, ¿no? Sí, sí. Una mala persona. No, no, no. Más que mala, inepta. O sea, no entendía dónde estaba parada o sentada, ¿no? Entonces... Habiéndole dicho no pare los trenes,"
+        }
+      ]
+    },
+    {
+      "clip_id": "M003",
+      "orden_anotacion": 3,
+      "entrevista": "61_7_cesara",
+      "candidato_cid": 7,
+      "candidato_slug": "7_cesara",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 372.045,
+      "inicio_s": 329.82,
+      "fin_s": 389.395,
+      "duracion_s": 59.575,
+      "sha256_wav": "b9cd93cf32fff03e0681a5bd0942be1520b0796604dbb78e6d9d0dcdc2bc38a4",
+      "sha256_json": "fda136effdd6d9e2c8222a9cb8a4b6ac8d0a5c2ef7a2bebd12da3f9ac106fece",
+      "archivo_clip": "M003.mp3",
+      "sha256_clip": "c5f582f180be3ea741dc6530ebcd29c912dcfb554342bfdb4f416099fb857c06",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "Asegura que de ser elegido presidente, ningún jubilado recibirá menos de un sueldo mínimo como pensión. Ojo, un sueldo mínimo. El detalle de esta quizá viable propuesta es que su propio promotor no tiene del todo claro cuánto es el sueldo mínimo del Perú."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "¿Cuál es la propuesta de César Aculla? Reivindicar a esos millones de peruanos que consideran un país. Eso que nosotros... O sea, un incremento de pensiones. Los cesantes y jubilados no van a ganar menos que el sueldo mínimo. ¿Cuánto es el sueldo mínimo, candidato? Ahorita son 1.200, 1.300 soles."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Yo tengo que corregírselo. El sueldo mínimo es 1.130. ¿Cómo van a votar por César Acuña si no sabe cuánto es el sueldo mínimo?"
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "Bueno, decirle pues que casualmente eso hubiera sido un meme ya, por ejemplo. Porque me equivoqué con el número y ya es un meme. El sueldo"
+        }
+      ]
+    },
+    {
+      "clip_id": "M004",
+      "orden_anotacion": 4,
+      "entrevista": "41_5_jorgeni",
+      "candidato_cid": 5,
+      "candidato_slug": "5_jorgeni",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 952.815,
+      "fin_s": 1012.792,
+      "duracion_s": 59.977,
+      "sha256_wav": "8b2bf69cbb1135e790e9d3a067e28010420553a4648aa1033e389a1cba239c80",
+      "sha256_json": "477f221e836a60fe811cfc35bdb700f214eb8544b47ce427a6a266afc1a2a3a8",
+      "archivo_clip": "M004.mp3",
+      "sha256_clip": "b8fd4540db210df02de8f7278c7a14364418daa14d708532038019d72383d529",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "luchas emprendería usted en materia de seguridad ciudadana? También tiene un minuto para responder a ella."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Qué bueno, porque puedo continuar con la respuesta. Le decía, primero... que el presidente se comprometa directamente en la conducción. Todos los días a las siete de la mañana tiene que haber un gabinete de lucha contra la criminalidad con el ministro del Interior, con el jefe de la policía y con todas las instancias encargadas del asunto. Segundo, retirarle a la policía todas las tareas administrativas de compra. Acabamos de ver el avión que nos han vendido por 68 millones de dólares, que no nos vendieron y que nos han estafado. Yo no creo en estafas, ahí ha habido corrupción de quien estaba a cargo del ministerio en ese momento, de quien estaba a cargo de la compra y del presidente seguramente. ¿Qué hay que hacer? Que esas capacidades de compra pasen al Ministerio de Economía para que las decisiones sean directas de quien maneja la caja, porque la policía tiene necesidades apremiantes para poder resolver la situación. Tercera cuestión, con los buenos policías que tenemos y tenemos muy competentes y muy capaces, hay que"
+        }
+      ]
+    },
+    {
+      "clip_id": "M005",
+      "orden_anotacion": 5,
+      "entrevista": "17_2_rla",
+      "candidato_cid": 2,
+      "candidato_slug": "2_rla",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 1052.169,
+      "fin_s": 1112.548,
+      "duracion_s": 60.379,
+      "sha256_wav": "ba38782ef033d86492a7509d7c41bbce67e0ee6bd3dff735c0abb6f5a742a106",
+      "sha256_json": "368cf21520f915a87cac5e9a3cb17c70253651874c9233e76692eeb78559ee13",
+      "archivo_clip": "M005.mp3",
+      "sha256_clip": "2a356f1d1365b1cfb9807c514d8976877f88bb7aeba6e93c039c51fccef427ec",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "le roba al Estado y le quita el agua a la gente, le quita la comida a la gente, le quita la salud a la gente, le quita la pista, la vereda, la escalera, el muro de contención."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Tanto esa definición, entonces para ti todo caviar tiene que haber sido funcionario público, hay caviares que no han sido funcionarios públicos."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "La mayoría lo son, yo creo que es gente que, tengo mi teoría, el abuelo es caviar, el hijo es caviar, el nieto es caviar, entonces siguen rotándose y se pasan a la posta. Ahora, tiene sus voceros también, ¿no? Correcto."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "Ahora, escúchame, así va a ser también cuando seas presidente, vas a personificar y vas a atacar a tal persona, si es que finalmente te dijo, decir nombre de periodistas, o va a haber otro Rafael López Aleaga, si es que finalmente llega al gobierno, que se encargue más de las cosas trascendentales que de las disputas en redes, etcétera, etcétera."
+        },
+        {
+          "turno_id": 5,
+          "hablante": "H1",
+          "texto": "Mira, yo he venido a tu programa para hablar de un plan de gobierno, pero ahorita estamos en la coyuntura, ¿no? Entonces, tengo que responderte, evidentemente,"
+        }
+      ]
+    },
+    {
+      "clip_id": "M006",
+      "orden_anotacion": 6,
+      "entrevista": "8_1_keiko",
+      "candidato_cid": 1,
+      "candidato_slug": "1_keiko",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 1213.427,
+      "inicio_s": 1179.995,
+      "fin_s": 1239.995,
+      "duracion_s": 60.0,
+      "sha256_wav": "58498df578d368293fd5635a035b2940d05202395f91df3dccdfcfed257f2843",
+      "sha256_json": "ec3eb0269eb09916a0c4de20add1e30823596562b600ef3ef76be4fa47fd9070",
+      "archivo_clip": "M006.mp3",
+      "sha256_clip": "a00ad53b83603bf96087471af2449827f3a5a83b232c1c80f607f4875cb0510b",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "Para eso, obviamente, las Fuerzas Armadas nos ayudarán en el control de las fronteras. Lo otro que creemos muy importante, y me lo recordaban en el Cerro San Cosme, es que en la época de la lucha contra el terrorismo habían rastrillajes, se cerraban los distritos y junto con las Fuerzas Armadas y la propia comunidad se entraba casa por casa a tratar de encontrar a los terroristas, armamento ilegal y esto se tiene que volver a recuperar. Entonces para eso vamos a convocar a las Fuerzas Armadas."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Cuando habla de los extranjeros que no tengan documentación en regla, pregunto, ¿esto quiere decir que habrá, promoverá redadas? Y cuando hablo del control territorial, ¿también aplica eso? Es decir, sacar a equipos combinados de las Fuerzas Armadas y de la Policía a que de pronto, de acuerdo al mapa de calor de la delincuencia, cuando se establece, digamos, qué zonas son donde se han presentado más denuncias o donde se registra mayor incidencia"
+        }
+      ]
+    },
+    {
+      "clip_id": "M007",
+      "orden_anotacion": 7,
+      "entrevista": "67_7_cesara",
+      "candidato_cid": 7,
+      "candidato_slug": "7_cesara",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 196.348,
+      "inicio_s": 152.95,
+      "fin_s": 213.345,
+      "duracion_s": 60.395,
+      "sha256_wav": "a2fbd5deb86392302376e97d18c17dcc85e826060da361bbc051a7accbfe1be7",
+      "sha256_json": "9868c76f465d0924113b9a66cfdc45f669a34839c29e4eef9b8d1a6778ea6745",
+      "archivo_clip": "M007.mp3",
+      "sha256_clip": "b05589563abd74adfbac37959b27bcb064b8c43c48bdb9cf7a40fff405acbf47",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "medidas. Uno, la reforma total del sistema de contratación e inversión pública. Dos, muerte civil para los corruptos con un proceso exprés de pérdida de dominio de sus bienes. Tres, apagón regulatorio y simplificación administrativa para evitar que malos funcionarios extorsionen a los ciudadanos. No voy a permitir que la corrupción robe la esperanza de mis niños. No voy a permitir que la corrupción robe la esperanza de mis jóvenes. No voy a permitir que la corrupción robe la esperanza de la gente humilde que quiere agua, que quiere luz."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Muchas gracias, candidato César Acuña. Vamos a entrar ahora a los 2 minutos 30 que cada uno de ustedes tiene para que, si fuera posible, intercambiaran y nos dijeran si las propuestas que estos contendores están planteando les parecen viables o"
+        }
+      ]
+    },
+    {
+      "clip_id": "M008",
+      "orden_anotacion": 8,
+      "entrevista": "55_6_robertosa",
+      "candidato_cid": 6,
+      "candidato_slug": "6_robertosa",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 2943.836,
+      "inicio_s": 2926.925,
+      "fin_s": 2986.708,
+      "duracion_s": 59.783,
+      "sha256_wav": "ef281a1f1e51dcd0cba42be8d1745102337f158be50a3b7b29aad694cd3aa6f5",
+      "sha256_json": "7cb5bbe213339af5ef098ed4ffe9ba4a070afd1528eeb2e0771dfebfef8c048c",
+      "archivo_clip": "M008.mp3",
+      "sha256_clip": "e187003e9b5aa1c43e96d493e4f5212bc5282517beff8f3d14c2e4b8ec390fce",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "tiene un equipo constituido, que conoce territorio, que tiene que estar capacitando a su gente y sin embargo a los movimientos regionales manan, no hay financiamiento. Dijimos, ¿por qué tiene que financiarse a un partido que ha puesto a cinco ¿Cómo le dirían? Cacaseno, si se quiere."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Mequetrefe."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Mequetrefe. Porque en realidad no representan a nadie. Están apoyando al jefe de su partido, al dueño del partido. Y encima de que ganan unos sueldazos en el Congreso, el partido se lleva... Ahora va a ser 5.50 soles por cada voto que vayan a conseguir. Mira, el dato... A la fecha, en esta gestión 2021-2026, el financiamiento a partidos políticos, que son 10 nomás que están en el Congreso, ha sido de 77.980.016.40. Casi 78 millones se ha ido para estos partidos que inclusive han hecho acuerdos para quitarle la representación a la"
+        }
+      ]
+    },
+    {
+      "clip_id": "M009",
+      "orden_anotacion": 9,
+      "entrevista": "50_5_jorgeni",
+      "candidato_cid": 5,
+      "candidato_slug": "5_jorgeni",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 137.527,
+      "inicio_s": 108.698,
+      "fin_s": 168.513,
+      "duracion_s": 59.815,
+      "sha256_wav": "a85af79d574d44f9a4119a6f208545e53a88d4596ae2abf519c3a54be7fa8e3c",
+      "sha256_json": "e0bd2da92e241d28b9ddfcb0a32a98800a5eab4ab8258e5642bec17f8b463905",
+      "archivo_clip": "M009.mp3",
+      "sha256_clip": "0027dd53042bc7043d20c7589fd51f3b066e20d7825e743dee6253cf8ee2c3df",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "presidencial. Cuando la señora Fujimori perdió las elecciones en el 2016, su principal discurso político, rodeado de todos sus elegidos, dijo, voy a gobernar desde el Congreso."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Y usted fue parte de ese gobierno. Cuéntenos un poco su experiencia. Claro. Yo tuve, digamos, un vínculo político."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Político, ¿no? Ella estuvo interesada en llevar ayuda a sus partidarios, me parece, en el barrio de La Esperanza, en Trujillo, y pidió apoyo del Ministerio de Defensa. Y nosotros le dijimos lo que le decíamos a todos, vaya usted al grupo aéreo número 8 con la ayuda humanitaria que va a llevar. y haga su fila y en cuanto el avión tenga espacio, todo se llevará a donde usted quiera que se lleve, en este caso a"
+        }
+      ]
+    },
+    {
+      "clip_id": "M010",
+      "orden_anotacion": 10,
+      "entrevista": "22_3_carlosal",
+      "candidato_cid": 3,
+      "candidato_slug": "3_carlosal",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 2564.911,
+      "fin_s": 2624.714,
+      "duracion_s": 59.803,
+      "sha256_wav": "086eab0f87f48214e1eaeaeff8bf516f26b14d5e34c1f3eb2b5f4d33d5f09893",
+      "sha256_json": "37ba4a9f00067dd0644f75026306d11f47df6edef965518ff624e07dacc10cff",
+      "archivo_clip": "M010.mp3",
+      "sha256_clip": "186c54f10c06f0b6cc492e2e540e30df14adea4547251f3e881bd4cc511e6a56",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "índices de medición de éxito van a proponer ustedes para poder controlar precisamente que esas medidas que van a implementar funcionen? Porque todos los candidatos hablan de qué hacer pero no dicen cómo."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Bueno, yo postulo a la inversión en la primera infancia, de cero a siete años. Cada dólar que uno invierte en un niño de cero a siete años, retorna al Estado 10 dólares. ¿Por qué? Porque es un niño sin anemia, es un niño sin nutrición crónica, es un niño mejor educado, es un niño que se está formando su estructura mental, moral y psicológica mucho mejor. Tenemos que invertir en la primera infancia. Eso es muy importante. Es el primer paso para mí, donde ahí se forma la semilla de un mejor peruano, competitivo."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Me refiero a que se van a establecer a través de programas sociales, se van a establecer a través de ayudas a las familias a través de bonos."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "Los que están allí, pero tampoco no armar mucha burocracia, ese es el problema, que se va todo el presupuesto de la República en gasto corriente, Carina. Ese es el problema, Ricardo. Son 257 mil millones de soles del presupuesto general de la"
+        }
+      ]
+    },
+    {
+      "clip_id": "M011",
+      "orden_anotacion": 11,
+      "entrevista": "42_5_jorgeni",
+      "candidato_cid": 5,
+      "candidato_slug": "5_jorgeni",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 674.031,
+      "inicio_s": 638.405,
+      "fin_s": 698.507,
+      "duracion_s": 60.102,
+      "sha256_wav": "72f2256a9f735b188b87cae9e08ea1de8293d9aaa3fb962c2bec9c6a7ea5cb55",
+      "sha256_json": "b80c0e5c306a007c82d25fbdcfcdf9b4720415147fe435b294740bf2ad4f0a9f",
+      "archivo_clip": "M011.mp3",
+      "sha256_clip": "5dde87f1ab63f294b6083890c9b07d4279def0c76d2c9e0883129439597bfc6d",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "primera es la política, que en este caso es la campaña electoral. La campaña electoral realmente va a empezar en enero. Hoy día todo lo que ha hecho es un escarceo. ¿Por qué, Rosa María? Porque la campaña electoral está dirigida a que el político, los políticos, las políticas, quienes tienen un rol activo en la participación pública, conversen con la gente. Pero no hay conversación si la gente está atendiendo a otra cosa, a las urgencias del día."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Pero en enero también van a haber urgencias."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Pero ya comienza, la gente ya comienza porque se da cuenta que tiene que votar."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "¿Por eso es que ha estado en silencio usted?"
+        },
+        {
+          "turno_id": 5,
+          "hablante": "H1",
+          "texto": "No hemos estado en silencio, hemos estado trabajando activamente, organizando los grupos que nos permitan la expansión territorial y los grupos que nos permitan una activa, inteligente, novedosa actividad en las redes. Estamos en eso. Pero quiero darte un ejemplo adicional. Se dice, estos están condenados a esa fragmentación. Miremos Bolivia. Acaban de ser"
+        }
+      ]
+    },
+    {
+      "clip_id": "M012",
+      "orden_anotacion": 12,
+      "entrevista": "25_3_carlosal",
+      "candidato_cid": 3,
+      "candidato_slug": "3_carlosal",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 1403.7,
+      "inicio_s": 1368.256,
+      "fin_s": 1428.256,
+      "duracion_s": 60.0,
+      "sha256_wav": "88e9142f64fbfa2766add2703b2a5b3f4a095dc98b5c8c43b575e799f8c4b31a",
+      "sha256_json": "18710a166753c68851d5b2d1ebade72815f8344f8a75f08c160264905f7f6d07",
+      "archivo_clip": "M012.mp3",
+      "sha256_clip": "e1f07c745d0c290564467893b8ba7068bf99d5c32069ad8b771b9633aa8caf8a",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "Este señor que lo mataron en Armonía 10, al niño, al boticario que lo asesinaron dentro de su botica, yo fui al velorio. de la vida y los deudas y el niño me dijo, señor Carlitos, hoy es mi cumpleaños, yo diré a mi fiestecita, y mi papá está ahí en ese cajón, ¿tú crees que esas cosas no duelen? Y me dicen, no, no, no, pena de muerte, no, derecho humano, no señor, dejemos de repente una salida parcial, podría ser una opción, lo laboral que lo vea la JOSAN JOSÉ, el tema sicariato, extorsión, crímenes, que firme en la Constitución y en el Código Penal."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Quiero cerrar brevemente con un comentario, ¿qué opinión te merece la gestión de José Jerico?"
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Bueno, creo que, bueno, pues, vino a volar, te dejó la valla tan baja que, bueno, él es un superhéroe, ¿no? Pero menos fuegos artificiales, menos show y más acción, ¿no? Más soluciones concretas para el país."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "Es lo más importante. Muy bien. Empezamos a conocer, entonces, a esbozar la figura de"
+        }
+      ]
+    },
+    {
+      "clip_id": "M013",
+      "orden_anotacion": 13,
+      "entrevista": "62_7_cesara",
+      "candidato_cid": 7,
+      "candidato_slug": "7_cesara",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 2689.54,
+      "fin_s": 2749.695,
+      "duracion_s": 60.155,
+      "sha256_wav": "38b566d6662f0f539a1a3e245919e248307bdadcac7cea5052b87f383541cf06",
+      "sha256_json": "b1071deedfc5319680c05c172a943421352024c92fc89673020cd4d574380b82",
+      "archivo_clip": "M013.mp3",
+      "sha256_clip": "8586d43a8c6bf0e8b1a298171a032fdf04ea476641385e2f2ca09d272d10983e",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "Estamos gastando millones de millones y tenemos que atacar la causa. Tenemos que dar el origen. ¿De dónde viene la anemia? Una mala alimentación. ¿Y por qué hay buena alimentación? Porque hay mala agricultura. ¿Y por qué? Porque la agricultura no tiene agua. Entonces, es todo un sistema. Y ese sistema, alguna vez algún presidente tiene que comenzar a hacerlo. Por eso digo, siempre reitero, es la ventaja de que conozco la gestión pública. Y sé lo que piden los agricultores. Y sé lo que quieren los niños. Los niños necesitan un lugar adecuado donde estudiar. Los niños tienen que tener buenos maestros de inicial. Ojo, la función del maestro inicial... hace de papá y hace de mamá. Por ejemplo, yo tengo un programa que creo"
+        }
+      ]
+    },
+    {
+      "clip_id": "M014",
+      "orden_anotacion": 14,
+      "entrevista": "35_4_chau",
+      "candidato_cid": 4,
+      "candidato_slug": "4_chau",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 972.833,
+      "fin_s": 1032.656,
+      "duracion_s": 59.823,
+      "sha256_wav": "04208f5794776f095d8260bf45fe7f11ed1c6b13601b2c840b9cd566ea10b012",
+      "sha256_json": "19c685b2a70c3be9d1f94e7816925004d79b512ee2a97b601ddb386c0623e9dd",
+      "archivo_clip": "M014.mp3",
+      "sha256_clip": "15633171d5862ea3b2e8f2a47e3e3ac390d503de2b0dc438870038dc7931db7a",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "Si yo no hubiera abierto las puertas, ¿qué cosa hubiera pasado en plena avenida Tupac Amaro? Descomprimí a gusto."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Y no hay un solo terruco. Pero mi punto ahí es que abrir o no las puertas era parte de tu función como rector. Uno puede estar a favor o en contra, pero no te pueden iniciar un caso por eso. ¿Me iniciaron? Claro, es que es absurdo. Y a eso voy. Que los fiscales se politizan mucho y lo que hacen es... No me gusta que López Chávez le haya abierto la puerta a los estudiantes. Le abro una investigación. Es parte de su función como rector, decidir qué hace."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Claro, entonces quiere decir que la sociedad está tan dividida que es una cultura la que hay que superar. Yo creo que esta cultura viene de lo que se conoció como el largo periodo fujimorista. Yo escribí en el año 95 un texto... Augusto, que se llamaba tiranía electiva. Y me dirigía al poder. Me dirigía a Alberto"
+        }
+      ]
+    },
+    {
+      "clip_id": "M015",
+      "orden_anotacion": 15,
+      "entrevista": "12_2_rla",
+      "candidato_cid": 2,
+      "candidato_slug": "2_rla",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 114.915,
+      "fin_s": 174.614,
+      "duracion_s": 59.699,
+      "sha256_wav": "d43e199c423330881e1530e4084504e975422448358286534c6f12a8f84ec7f1",
+      "sha256_json": "307db84d65d17dfcd97d72bc67c98ebb73cc70f8e2b271875baa002e9a3291c9",
+      "archivo_clip": "M015.mp3",
+      "sha256_clip": "7c57ecd7949a0bdfa96c1b5cf164926673b0459f9f5a58f17fc9c603b4afac0c",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "a Dios. Y después a los hijos de Dios. Así de claro. Así lo vivo y así lo siento. Me harán memes, me harán ridiculeces, pero así lo siento y lo vivo, ¿no? No de ahora, de toda mi vida. El primer gran tema, ¿no? El segundo gran tema. Yo efectivamente dije cuatro años como una forma también de liberarme personalmente. Te podría explicar por qué, pero me temoraría un poquito de tiempo. Porque para mí es un sacrificio. Un sacrificio cuesta. Cuesta de fregado, ¿no? Más si te tomas en serio las cosas. Si vas a estar vagando en la muni, bueno, no haces nada, ¿no? Pero no es mi caso. Yo cuando tomo algo, lo hago al 100% o más. Entonces... El tema es complicado, porque estaba buscando gente y te consta, porque públicamente lo han dicho. A Philip Butler, mi sobrino, aunque él no quiera, pero mi sobrino de sangre, se lo dije cuatro veces, como él bien lo dice. No quiso, pues."
+        }
+      ]
+    },
+    {
+      "clip_id": "M016",
+      "orden_anotacion": 16,
+      "entrevista": "9_1_keiko",
+      "candidato_cid": 1,
+      "candidato_slug": "1_keiko",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 3088.937,
+      "fin_s": 3148.979,
+      "duracion_s": 60.042,
+      "sha256_wav": "51cbf9eb4d017c7616035a9b581e0f25fd38e0113e143aba81b99218a5237cd2",
+      "sha256_json": "2b9be841f986c03c825312f1d91290ca22becc2ca2884799c4063ead0edff22d",
+      "archivo_clip": "M016.mp3",
+      "sha256_clip": "4ff72fe951346705b384847fc762cc03e749733616f7ac7b0d3556b6e499345c",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "ha vuelto nuevamente al tapete. Usted está enterada seguramente de lo que se ha visto y el Ministerio de la Mujer está investigando. ¿Usted es partidaria del aborto terapéutico para casos de violación en menores? Sí."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Primero tengo que rechazar tajantemente que se hayan vulnerado la identidad de estas niñas. A estas chicas hay que protegerlas, hay que cuidarlas y esta información realmente las vulnera. Lo segundo es que en Fuerza Popular y quien habla está a favor del aborto terapéutico en caso de que la madre corra riesgo, más no en caso de violación."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Bien, vamos ahora a una pregunta ciudadana. También aquí en TV Perú y en tu decisión 2026 tenemos contacto con el interior. Vamos a ir a Puno, justamente, que está celebrando la Candelaria, pero que también les preocupa el tema electoral. Así que tenemos justamente el enlace con uno de los pobladores de Puno. Vamos a verlo de inmediato."
+        }
+      ]
+    },
+    {
+      "clip_id": "M017",
+      "orden_anotacion": 17,
+      "entrevista": "37_4_chau",
+      "candidato_cid": 4,
+      "candidato_slug": "4_chau",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 1662.669,
+      "fin_s": 1722.669,
+      "duracion_s": 60.0,
+      "sha256_wav": "9a8381bd150a11f6d521ed14dcc0704050177e3efd3fd8cd3aca82b532563efe",
+      "sha256_json": "4d7cd34734b9ff1b82eb4e2bff379ebf99bde69667ab841a9540fb2b3d609065",
+      "archivo_clip": "M017.mp3",
+      "sha256_clip": "8a25913bc53ff320882e2d4211e5c5db471e66f44521a9574ea1c7788461d1e4",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "cuál es la primera raíz? La primera raíz es, dicen los cristianos, lo que le está permitido al soberano, le está permitido al súbdito, lo que le está permitido al presidente, le está permitido al pueblo. Cada canallada ejercida de los altos mantos del poder, autoriza al pueblo a hacer lo mismo porque sigue el ejemplo y por eso se dice que envilecer el alma de un pueblo es peor que robar una cartera o peor que robar una barra de oro porque cuando se envilece el alma de un pueblo ya la posibilidad de futuro y realización civilizada se anula ese es el combate de la mafia y por eso hemos dicho Líderes corruptos generan seguidores corruptos. Líderes mentirosos y caimados generan seguidores caimados"
+        }
+      ]
+    },
+    {
+      "clip_id": "M018",
+      "orden_anotacion": 18,
+      "entrevista": "28_3_carlosal",
+      "candidato_cid": 3,
+      "candidato_slug": "3_carlosal",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 1202.681,
+      "inicio_s": 1166.412,
+      "fin_s": 1226.206,
+      "duracion_s": 59.794,
+      "sha256_wav": "53d81aadaf2d61b57e48b3dc2a206d65ff2dd7b25e2facb3090b5cb4c543db52",
+      "sha256_json": "4b5b27a9604cf680b8de3e96bc68e59d250411e33168aca621d1855ed74d3794",
+      "archivo_clip": "M018.mp3",
+      "sha256_clip": "85cc61efa20dff37c66a8b44770e7b3231eab0df6c1139bc877a87fc153314df",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "Aquí no va a entrar ningún posible delincuente que busque inmunidad. No, señor. Esta propuesta tiene que ser limpia y honesta. Así gane o pierda. Ya las elecciones internas dirán si seré candidato presidencial o no. Y si lo soy y pierdo las elecciones con valores y con mis principios, punto, se acabó. Tenemos una alternativa diferente, una idea que construye el país. Queremos refundar el país en democracia, sin violencia y bajo el imperio de la ley y hacer respetar este país. No podemos tener una manga de ladrones en todos los estamentos del Estado. Eso tiene que derratizar el Perú. Esa es nuestra propuesta. Entonces, aquí el filtro es muy importante."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "¿Julio Príncipe te va a ayudar con los filtros?"
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Por supuesto que sí. Tenemos una comisión que está ayudando. Hasta yo paso por el filtro y se acabó todo el mundo. De eso se trata. Hay que recuperar la confianza de la ciudadanía."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "Hay que recuperar la confianza de la ciudadanía. Está muy desencantado. Es evidente. Ahora, sobre todo, salud, educación, esas son las vitrinas, por supuesto con la inseguridad, donde la ciudadanía"
+        }
+      ]
+    },
+    {
+      "clip_id": "M019",
+      "orden_anotacion": 19,
+      "entrevista": "59_6_robertosa",
+      "candidato_cid": 6,
+      "candidato_slug": "6_robertosa",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 2043.801,
+      "inicio_s": 1999.4,
+      "fin_s": 2059.291,
+      "duracion_s": 59.891,
+      "sha256_wav": "ba834d45428cd1932037550603f563b96bc4ada51292c00f7bc630188be6c282",
+      "sha256_json": "73cf04edfefc8d57ecbe3ca3ad28a8d71bb8657d5e033b9d5192c7437e7f79ca",
+      "archivo_clip": "M019.mp3",
+      "sha256_clip": "e3a904dc7a47277cd7d558e6126f44e2f3a514e763f5b459e96ebbe940468778",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "Dos, un proceso de formalización de verdad, con estándares ambientales, con derechos laborales, pero que no le arrebate el derecho a las comunidades, a los pueblos ancestrales, a ser parte, no de regalías, no de terrenos que te compro, sino también de ser gestores, accionistas, dueños, empresarios. El Estado no tiene por qué... y legitimarlos y criminalizarlos. El pueblo minero tiene derecho a que el Estado le reconozca y democratice la minería, no solamente para los grandazos."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Si llegan al poder, ya que usted dice que tomará varias decisiones el primer día, ¿qué hará con la situación legal del señor Castillo?"
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Sí. Miren, la voz del pueblo es la voz de Dios."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "¿Lo va a liberar? ¿Lo va a indultar?"
+        },
+        {
+          "turno_id": 5,
+          "hablante": "H1",
+          "texto": "Naturalmente, el otorgamiento de las gracias presidenciales conllevará a que precisamente el presidente esté libre, va a"
+        }
+      ]
+    },
+    {
+      "clip_id": "M020",
+      "orden_anotacion": 20,
+      "entrevista": "66_7_cesara",
+      "candidato_cid": 7,
+      "candidato_slug": "7_cesara",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 218.532,
+      "fin_s": 278.76,
+      "duracion_s": 60.228,
+      "sha256_wav": "aafa1a43242a4aa5a93d0b1f02582ea44b2dc710599187a3f7dfea234ffcb68e",
+      "sha256_json": "1bfbb7719309f2b889b8f1d289942634b68bb8171fa5c0e2be8056f807e6d702",
+      "archivo_clip": "M020.mp3",
+      "sha256_clip": "bfa7d133bcb8198bbe7ce4b57f0f70749e65ee69f24166d216df11741c6d9d79",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "informales sin ningún derecho, con todas las condiciones laborales precarias en las que se desenvuelven. 3.600.000 empleos creados por 2.200.000 unidades agrarias. Y finalmente, un pequeño sector que no tiene empleo y otro que trabaja en la formalidad. De eso hablamos cuando hablamos de empleo en el Perú. ¿Quiénes proveen ese empleo? La pequeña y microempresa y los sectores pequeños productores agrarios. Tenemos que reorientar la política económica y trabajar para favorecer ese desarrollo. No es un asunto de ventanitas."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Tiempo, candidato, pero tiene espacio todavía para poder continuar planteando sus proyectos respecto al tema de empleo, desarrollo y emprendimiento. Y, como saben, es un bolsón de tiempo de 2 minutos con 30 segundos que pueden administrar como mejor consideren y pueden pedir el uso de la palabra a mano alzada."
+        }
+      ]
+    },
+    {
+      "clip_id": "M021",
+      "orden_anotacion": 21,
+      "entrevista": "51_6_robertosa",
+      "candidato_cid": 6,
+      "candidato_slug": "6_robertosa",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 4173.576,
+      "fin_s": 4233.437,
+      "duracion_s": 59.861,
+      "sha256_wav": "30116527f1184bd805f246fc57252f774f50b69d00d8bb6e1dcbd1e6808128b3",
+      "sha256_json": "8c0dc100c3545e7bd2d0895d01932fbf6b8237be8c55107f7044cc2253b2c757",
+      "archivo_clip": "M021.mp3",
+      "sha256_clip": "eec8e2beae9585394b8338f4a1763f91b96ccff18fa74b47f3c04be88e29d73f",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "del país y sus soluciones y encontrar todo aquello que nos une. Eso es posible. Y por eso yo valoro tanto esta iniciativa de los chicos que trabajan. Mira, ahí está el… La convocatoria ojalá sea posible. Han salido muy mal los debates. La gente del colegio médico se está quejando de que nadie quiere ir."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Hoy día me toca a mí."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Al colegio de ingenieros fueron cuatro la otra vez. Cuatro de los 36 candidatos. No puede ser. Nosotros tenemos 11, contigo 12. Y la vamos a hacer... Así nos tengamos que quedar tres horas ahí, la vamos a hacer."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "Treinta segundos, mi estimado, ¿puede ser? Los que quieras."
+        },
+        {
+          "turno_id": 5,
+          "hablante": "H1",
+          "texto": "No tanto, no tanto como los que quieras, no es capaz de hablar, despacharte media hora, pero... Sí. Treinta segundos, sí."
+        },
+        {
+          "turno_id": 6,
+          "hablante": "H2",
+          "texto": "El régimen económico, el régimen político, que no representa al pueblo quechua y mar amazónico, al Perú de toda la sangre de Arguedas, se acabó. Esta vez... Necesitamos un nuevo pacto social, una"
+        }
+      ]
+    },
+    {
+      "clip_id": "M022",
+      "orden_anotacion": 22,
+      "entrevista": "76_8_cerron",
+      "candidato_cid": 8,
+      "candidato_slug": "8_cerron",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 54.817,
+      "fin_s": 114.957,
+      "duracion_s": 60.14,
+      "sha256_wav": "2d3784ef327bc6646e40f506e8df21505a747571ed9d54e7c9366fc349f169b2",
+      "sha256_json": "923c5049b0b762f1ed93b9f96555da841113cc0ec6c2dca87136bf9d7bb6dc61",
+      "archivo_clip": "M022.mp3",
+      "sha256_clip": "9c717e7dc05dc0c52a17994b07bbcef12d5a5cd1ee74d13104dbbafcadc99162",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "Estamos entrevistando a todos los candidatos porque me parece que es un comportamiento que el periodismo debe tener, dar a conocer todas las versiones y por eso estamos aquí con él. Quiero decirle que no me va a negar el señor Vladimir Cerrón Rojas, hemos tenido varios encontrones en las redes en los últimos años entre él y yo y al margen de eso, pues, creo que es obligación del periodismo dar a conocer los puntos de vista y por eso es que me parece muy importante poderlo entrevistar y como decía Lenin, es una verdad el que con frecuencia en política se aprende del enemigo y entonces uno debe escuchar puntos de vista distintos y aquí estamos con él. Doctor Serrón, vamos a la pregunta, ¿cómo está? No le pregunto dónde está porque usted está en la clandestinidad, pero ¿está en el Perú o está en el extranjero?"
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Bueno, lo he manifestado en múltiples ocasiones, que yo me encuentro en territorio nacional, nunca he abandonado el país y estoy casualmente cerca del partido, en alguna medida dirigiendo y dando las orientaciones"
+        }
+      ]
+    },
+    {
+      "clip_id": "M023",
+      "orden_anotacion": 23,
+      "entrevista": "73_8_cerron",
+      "candidato_cid": 8,
+      "candidato_slug": "8_cerron",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 1547.947,
+      "inicio_s": 1522.808,
+      "fin_s": 1582.677,
+      "duracion_s": 59.869,
+      "sha256_wav": "087d467566741b8f4cb7b16d84424091019321dd4b98bfbf8dd2fcb798113ee1",
+      "sha256_json": "2d698d15ee625ec22e9d1930af66740cc3fdef4e286735506c3a1ac7461b9ffa",
+      "archivo_clip": "M023.mp3",
+      "sha256_clip": "3692e26bb341899a072a586ba803f741c7d5160dd7d0d9d5ec7571fd4647ea74",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "ellos su sentencia en primera instancia, están a la espera de una sentencia de vista, que es la sentencia de segunda instancia. La única condición en que se le podría dar un indulto es que ellos desistan de su apelación y la sentencia de primera instancia se haga firme Ahí sí procede el indulto que puede extender el presidente de la República."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Cerrón, ¿usted se amistaría con Pedro Castillo? Usted lo llamó un traidor hace unos días en una entrevista conmigo. Usted llamó que Pedro Castillo había traicionado al programa de Cuero Libre y lo cambió por un programa caviar. ¿Usted... ¿Tendería lazos? ¿Se amistaría nuevamente con Pedro Castillo en esta circunstancia?"
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Bueno, los socialistas solamente tenemos un enemigo en el mundo, su"
+        }
+      ]
+    },
+    {
+      "clip_id": "M024",
+      "orden_anotacion": 24,
+      "entrevista": "36_4_chau",
+      "candidato_cid": 4,
+      "candidato_slug": "4_chau",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 781.671,
+      "inicio_s": 741.922,
+      "fin_s": 801.709,
+      "duracion_s": 59.787,
+      "sha256_wav": "adb9f34017acec97e7edca173d247deaf2380dca97fdd9b003cb7e6261150515",
+      "sha256_json": "6085372a1ca0f57ce81c7e3c168d0d2ec5da1ff50dd5c6bba2abe2ed6d9f3fe1",
+      "archivo_clip": "M024.mp3",
+      "sha256_clip": "c14fb8c0f51b0de504dc4a7848a8d32ba3ce84e1449e12030cabc5a59265f0ef",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "a la Uni. Y el resto, al examen de admisión, que seguramente van a ganar, y compite. Pero mi propuesta es que ni siquiera la Uni, el Estado, debiera becarlos a las mejores universidades del mundo. Y no es tan caro. Porque en Europa... La enseñanza universitaria es gratuita. Solo necesitaríamos financiar a 60 o a 30 alumnos al año con 1.200 dólares mensuales. Para un Estado es nada. Esos chicos regresan con su doctorado y si regresan con su doctorado deben llegar a la categoría principal."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Y va formando equipos de élites para las regiones."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Y sería una élite poderosísima, ¿no es cierto? Así es. Yo uso lo que llamo la metáfora del sándwich. Creo que es bueno que se lo diga a sus oyentes. Para comer el sándwich de cualquier"
+        }
+      ]
+    },
+    {
+      "clip_id": "M025",
+      "orden_anotacion": 25,
+      "entrevista": "4_1_keiko",
+      "candidato_cid": 1,
+      "candidato_slug": "1_keiko",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 865.043,
+      "inicio_s": 834.203,
+      "fin_s": 894.052,
+      "duracion_s": 59.849,
+      "sha256_wav": "a3861d9f8f47783d4bdb3a50eaa9b2eb848d95e2d30262e1a7390c33e1368fab",
+      "sha256_json": "c8352226c1e256e46aae0a273fba97c19e7113c39e5cf9a6c1b26a8de9b56ba0",
+      "archivo_clip": "M025.mp3",
+      "sha256_clip": "c4265a875f56a642d33623c0ed89925e650edc8e582828342e6bfd5187143e11",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "un rol que ella quiso asumir, ser una reina de belleza representando al Perú. Eso le dio a ella un protagonismo y un rol público, y ella entiende ahora lo que significa ser un personaje público. Bueno, recibió mucho bullying también, ¿no? También, también, y no ha sido fácil tampoco, pero eso ha hecho que ella sea una niña muy fuerte. Permítame terminar de contestarle las otras llamadas."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "¿Qué es lo peor que han dicho de usted en este bullying histórico?"
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "El que insinúen que yo soy una mala madre. Porque si algo, me esfuerzo todos los días. es en ser una buena mamá de Kiara y de Kaori. Y de darles a ella no solamente amor, sino de guiarlas en lo que es la construcción de sus propias alas."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "Escuché en sus"
+        }
+      ]
+    },
+    {
+      "clip_id": "M026",
+      "orden_anotacion": 26,
+      "entrevista": "19_2_rla",
+      "candidato_cid": 2,
+      "candidato_slug": "2_rla",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 1071.437,
+      "inicio_s": 1046.135,
+      "fin_s": 1106.437,
+      "duracion_s": 60.302,
+      "sha256_wav": "2cbbd0f543d2607e0372ec38831f6be2e8d15f8048a550f70a3199d88a577b47",
+      "sha256_json": "efc99b2030d8fd362e361d4cafc8923b52ef48350f0f86f6c28bfab134be98ce",
+      "archivo_clip": "M026.mp3",
+      "sha256_clip": "a302616a616daf2e074e422e2252d456902573157b6109d8b731641f3c61a9ab",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "amoroso, ¿no? Con acción le interesa la garantía que has dado, ¿no?"
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Claro, con una garantía y el honor del buen pagador."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Claro, pues la garantía cambia de mano."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H2",
+          "texto": "Bueno, sería con reglas de mercado, ¿no? Reglas de mercado. La gente me ha pedido que te pregunte si puedes explicar en detalle Sobre el tema de reducción de ministerios, ¿cuáles quedarían? ¿Cómo quedarían realmente compuestos? Yo tengo acá la lista entera de los ministerios."
+        },
+        {
+          "turno_id": 5,
+          "hablante": "H1",
+          "texto": "Está en mi plan de gobierno."
+        },
+        {
+          "turno_id": 6,
+          "hablante": "H2",
+          "texto": "Yo lo tengo acá abierto. Pero no sale en detalle cuáles quedarían."
+        },
+        {
+          "turno_id": 7,
+          "hablante": "H1",
+          "texto": "¿Puedes traerme el plan de gobierno que me enviaste? Te lo digo en detalle, pero te adelanto. Hay un Ministerio de Dignidad Humana y Desarrollo Humano. donde pones todos los programas sociales o todos los temas relacionados al ser humano, que son más de seis ministerios, que ahora te lo voy a dar en detalle, porque está en plan de gobierno,"
+        }
+      ]
+    },
+    {
+      "clip_id": "M027",
+      "orden_anotacion": 27,
+      "entrevista": "71_8_cerron",
+      "candidato_cid": 8,
+      "candidato_slug": "8_cerron",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 2248.536,
+      "fin_s": 2308.653,
+      "duracion_s": 60.117,
+      "sha256_wav": "93b149492f738d783498d25287e03a5fa82f821b0f58e200d402991330cdd4db",
+      "sha256_json": "0dcc2221b2477f51f6cb51e2ed13aefc261df66a3a6bf10cf29dd18ccab374c6",
+      "archivo_clip": "M027.mp3",
+      "sha256_clip": "ed4b28d7b40c992931d9cae28d47eebffaef22a1d9a7ba98b813492618b5b831",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "canero, una básica. Si se te hiciese una básica en este momento, ¿se podría colegir que tú estuviste en Chosica el fin de semana y que estás cerca a las veredas más esquivas del centro de Lima hoy?"
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Hablando de eso, te comento que una vez yo vi mi básica, ¿no? Porque Montesinos me envió al partido... su libro que había escrito en dos tomos y me lo trajo su abogada de apellido Tello y con una nota escrita a mano me decía Tocayo y algo de eso pero por casualidad considero que por casualidad se le fue la básica dentro de las hojas o habrá sido un mensaje que me han querido dar donde estaba el tiempo de los estudios que yo había estado en Cuba y algunos cargos que había desarrollado allá como Como médico, porque yo trabajé allá cuatro años como médico, ya no"
+        }
+      ]
+    },
+    {
+      "clip_id": "M028",
+      "orden_anotacion": 28,
+      "entrevista": "40_4_chau",
+      "candidato_cid": 4,
+      "candidato_slug": "4_chau",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 2871.561,
+      "inicio_s": 2836.212,
+      "fin_s": 2896.715,
+      "duracion_s": 60.503,
+      "sha256_wav": "35b8ad4f4b6ed8cd5a1d3807d9d07b41d52fed36dc01e85942aeec1141e894ab",
+      "sha256_json": "6ff199ed875df35256ef476279a90db4181793ebd0498f16db8f48b7409ef1b3",
+      "archivo_clip": "M028.mp3",
+      "sha256_clip": "bca270c246143df2057deb73a9d46ec81f406659312771427295d57a73787921",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "pública, en salud pública, porque básicamente hay gente que todavía propone que el Estado no se meta, o por el contrario, sí, les vamos a dar educación. como son un beneficio, como dijo Norma Yarro, agradezcan que tienen agua. Pero sí hay una cosa importante con la salud pública, que aún así me parece un debate ausente. Te lo he escuchado ahora, pero no es una cosa que se le esfuerce a la educación pública, por ejemplo, aunque tú eres finalmente rector de una universidad pública, has sido rector de una universidad pública, pero... Soy hijo de la universidad pública, desde primaria."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Hasta mi doctorado. Soy hijo de la universidad pública. Estudié en la Escuela Fiscal Víctor Ebarúa del Barrio Obrero de Fricolífica, en la Gran Unidad Escolar 2 de Mayo, en la Universidad Nacional de Callao, en la Universidad Nacional Autónoma de México, mi maestría, y el doctorado en la Universidad Nacional Autónoma de México. Público, universidad pública."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Pero por ejemplo, en ese México de los 80 en el que tú viviste, pues el valor de lo público"
+        }
+      ]
+    },
+    {
+      "clip_id": "M029",
+      "orden_anotacion": 29,
+      "entrevista": "77_8_cerron",
+      "candidato_cid": 8,
+      "candidato_slug": "8_cerron",
+      "estrato": "A",
+      "cambio_turno_ancla_s": 2882.227,
+      "inicio_s": 2850.856,
+      "fin_s": 2910.856,
+      "duracion_s": 60.0,
+      "sha256_wav": "2c639062a71920acfecf537254ebd6b5d288ab0f0018e583afb8fc0690c16e56",
+      "sha256_json": "906089c4585058c5268349630dc52cd8f971d2a517b22f07c0d44769e210f909",
+      "archivo_clip": "M029.mp3",
+      "sha256_clip": "e2da916692a3537e46484d47135814ef261d8a184fed8bdc23c0cd8b39be7e44",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "el hospital que también Perú Libre le puso mucho empeño para lograr terminarlo, que había quedado abandonado."
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Quiere decir, doctor Vladimir Serrón, de esta gestión de Sócimo Cárdenas, actual gobernador regional de Junín, Sócimo, su gestión ha sido, o está siendo prácticamente desastroso esta gestión, y por ello es que le motiva volver a participar ahora en estas elecciones presidenciales, doctor Vladimir."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H1",
+          "texto": "Sí, efectivamente, después de la primera gestión de Perú Libre que concluyó en 2014, la gestión de Unchupaico, la gestión de Sócimo han sido desastrosas. Y eso ocurre porque cuando una organización política no tiene un programa definido, no sabe qué hacer en el cargo. Y tanto Unchupaico y Sócimo Cárdenas tienen algo en común, han sido"
+        }
+      ]
+    },
+    {
+      "clip_id": "M030",
+      "orden_anotacion": 30,
+      "entrevista": "26_3_carlosal",
+      "candidato_cid": 3,
+      "candidato_slug": "3_carlosal",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 471.934,
+      "fin_s": 531.934,
+      "duracion_s": 60.0,
+      "sha256_wav": "572ba94d6f76d797d33ff390d0d2eecf49f777dc1741aeb2b859c3a27b409ebd",
+      "sha256_json": "a67211e729bf422e097e0c5eb52d5722d9b5905f5b068d38e3fcaa42e952a489",
+      "archivo_clip": "M030.mp3",
+      "sha256_clip": "2dfd056618db64c2bd74b9832a0f5f34fd8c40b721b99f636be99ee8fc2a43d9",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "y con mi propuesta de bajar 5 puntos de anemia por año. Y el 28 de julio de 31... He leído todo el plan de gobierno. Sí, sí, sí. Que dejarlo a 19%. ¿Cómo? Por ejemplo, no solo el plan de gobierno, sino las cosas que yo también tengo en mente y que me informan. Hacer, por ejemplo, un control integral de la madre gestante hasta que el niño cumpla 3 años. Hacer una estrategia diferenciada del tema de la anemia. ¿Por qué? Porque tenemos realidades diferentes, regionales, subregionales. no hay veros perus en un solo perú que lo comanda este equipo un personal de salud de primera pero también convoque a quien a lo mejor a los alcaldes a los gobernadores regionales a los sectores de medias el problema carlos es que todo eso ya existe es que no pero porque tenemos cuál es el 4% de anemia esa es la pregunta porque no hay voluntad política no hay liderazgo y ese punto yo iba a resumir que hablamos hace 5 minutos hay una posta médica en puñet en yatas en guánuco donde la anemia cuánto crees que es 80% 9% 9, señores, 9. ¿Por qué? Porque está implicado ahí el personal de salud, el MIS, el alcalde, tiene todo, los padres, familia."
+        }
+      ]
+    },
+    {
+      "clip_id": "M031",
+      "orden_anotacion": 31,
+      "entrevista": "44_5_jorgeni",
+      "candidato_cid": 5,
+      "candidato_slug": "5_jorgeni",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 943.716,
+      "fin_s": 1003.716,
+      "duracion_s": 60.0,
+      "sha256_wav": "5cca9dba9ebd105c887c127c1b480a17988c64b8d1ec6733e57c24e93f3558be",
+      "sha256_json": "b93f0b94273756017c7f663d276faeadac92c760d3f69a2b719d085402ea1fbb",
+      "archivo_clip": "M031.mp3",
+      "sha256_clip": "9dfdc82c1cccf7ab90264148de85c23044e1e5c7f2765a8d6a5c636f8a7e7872",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "se requiere una enorme cantidad de gasolina. ¿Quién se las vende? Los organismos del Estado. Ellos saben perfectamente que lo que están colocando de gasolina en la zona del Braille excede largamente el parque automotor. No se hacen la pregunta de por qué, con la estructuración de una investigación en serio y del control de ciertos instrumentos que tenemos. Y eso supone una firme voluntad política para combatirlo. Una idea que siempre surge cuando se habla del tema del narcotráfico es saquen el ejército y métanlo. México lo hizo. Lo hizo en el año 2007. Estamos hablando de hace 19 años. Y hoy día la estructura criminal del narcotráfico en México sigue tan fuerte como entonces. Si erramos en las soluciones, vamos a tener este problema en el largo plazo. ¿Qué ha pasado en México? 500 mil mexicanos muertos en estos 19 años. 500 mil."
+        }
+      ]
+    },
+    {
+      "clip_id": "M032",
+      "orden_anotacion": 32,
+      "entrevista": "60_6_robertosa",
+      "candidato_cid": 6,
+      "candidato_slug": "6_robertosa",
+      "estrato": "B",
+      "cambio_turno_ancla_s": null,
+      "inicio_s": 3220.6,
+      "fin_s": 3280.6,
+      "duracion_s": 60.0,
+      "sha256_wav": "c2c4e3f31fecfd6c3b0be6d61ac089acd917fb3d2f36be7e568590d967dd15ab",
+      "sha256_json": "ed21a727e019f513223b2acb650732eed0f58f9067c1092622f71e9382c00874",
+      "archivo_clip": "M032.mp3",
+      "sha256_clip": "b0c58b18d3d0f205279d7a437533039db9ec17c18c5847e7bda8b882b08c97da",
+      "precarga_ui": [
+        {
+          "turno_id": 1,
+          "hablante": "H1",
+          "texto": "repito, las que he escuchado y de la misma Karen, que normalmente no le hemos escuchado expresiones, ni ha sido candidata, por ejemplo, yo la saludo, ¿no? Y por eso decía, la saludo y lo felicito. Y ahora quizá volvamos un poquito para atrás en retrospectiva, ¿no?"
+        },
+        {
+          "turno_id": 2,
+          "hablante": "H2",
+          "texto": "Porque un día le hablé a ella un poco de filosofía, de historia, ¿no? Y yo le dije, le dije, Karen, este, si sabía, ¿no? Le dije, ojo por ojo, me dijo, en la encuentro."
+        },
+        {
+          "turno_id": 3,
+          "hablante": "H3",
+          "texto": "Pero hay que resaltar aquí en Línea de Fuego la importancia de que los artistas nos representen, ¿no? La sapiencia que han mostrado Manolo, la calidad actoral de Karen American. Y sí, por cierto, porque el artista está cercano, ¿no? Es lo más doméstico que tenemos en nuestro entorno. Y yo sé, verás que Te admiro por lo que estás trabajando y por la película que ustedes han hecho, pero la película Así juega Perú. Así no juega Perú. Así no juega Perú. Se va a estrenar el 22 de enero."
+        },
+        {
+          "turno_id": 4,
+          "hablante": "H4",
+          "texto": "El 22 de enero."
+        },
+        {
+          "turno_id": 5,
+          "hablante": "H3",
+          "texto": "El 19 se la va a imprimir, el 14 va"
+        }
+      ]
+    }
+  ],
+  "sha256_manifest": "17f609dc1615521d7fa07a291fc815482df26fccfe24d0d03725bbc6be5096b4"
+}
